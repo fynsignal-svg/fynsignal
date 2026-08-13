@@ -1328,7 +1328,7 @@ footer p { font-size: 12px; color: var(--mid); font-weight: 300; }
       <span class="filter-pill-num">02</span> Automated MIS Reporting
     </a>
     <a href="#case3" class="filter-pill" data-case="3">
-      <span class="filter-pill-num">03</span> Menu Design Impact
+      <span class="filter-pill-num">03</span> Centralization of Construction operation
     </a>
     <a href="#case4" class="filter-pill" data-case="4">
       <span class="filter-pill-num">04</span> Approval Automation
@@ -1616,6 +1616,7 @@ footer p { font-size: 12px; color: var(--mid); font-weight: 300; }
       </div>
     </div>
 
+ <!-- case 3-->
     <!-- ── CASE 03 ─────────────────────────────── -->
     <div class="case-card" id="case3-card">
       <span class="case-anchor" id="case3"></span>
@@ -1623,82 +1624,82 @@ footer p { font-size: 12px; color: var(--mid); font-weight: 300; }
         <div class="case-number">03</div>
         <div class="case-header-text">
           <div class="case-tag-row">
-            <span class="case-tag case-tag--industry">Restaurant, Independent</span>
-            <span class="case-tag case-tag--type">BI / Statistical Analysis</span>
+            <span class="case-tag case-tag--industry">Construction / Heritage Restoration</span>
+            <span class="case-tag case-tag--type">Data Pipeline / Operational Governance</span>
           </div>
-          <h2 class="case-title">Menu Design Impact Analysis</h2>
-          <p class="case-subtitle">No A/B test. No rollout date. Just sales history and a question that needed a real answer, not a gut feel. We used statistical change-point detection to isolate the impact and quantify it in revenue terms.</p>
+          <h2 class="case-title">Digitizing Multi-Site Construction Reporting</h2>
+          <p class="case-subtitle">Six active sites, six different ways of tracking the same thing: handwritten registers, scattered Excel sheets, WhatsApp messages. We built an AI-powered pipeline that turns site engineers' plain emails into structured data and a live dashboard, and it paid for itself in the first reconciliation.</p>
         </div>
       </div>
 
       <div class="case-body">
         <div class="case-content">
 
-          <img class="case-photo" src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=1200&q=80&fit=crop" alt="Business intelligence analysis" loading="lazy">
+          <img class="case-photo" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80&fit=crop" alt="Construction site data management" loading="lazy">
           <div class="case-section">
             <p class="case-section-label">The challenge</p>
-            <p>A US-based independent restaurant had redesigned their menu but hadn't tracked when the change went live. They wanted to know whether it had affected sales, and if multiple versions existed, which one performed best. No A/B test, no logged rollout date, just sales history and a vague sense that something had shifted.</p>
-            <p>This is a common problem for operations-heavy businesses: the decision already happened, the data trail is incomplete, and the business owner is left asking what happened after the fact rather than designing for it in advance.</p>
+            <p>Across six active heritage and development sites, daily progress and material data arrived in whatever format was closest at hand: a localized Excel sheet, a handwritten site register, a WhatsApp message. Nothing was standardized, which meant nothing could be reliably compared.</p>
+            <p>The real cost showed up downstream. Material lists, labor counts, and work order trackers didn't line up across site engineers, vendors, architects, and corporate finance, creating blind spots that made billing discrepancies hard to catch and even harder to prove. Reliance on manual reconciliation meant delayed payments, unverified vendor terms, and audits that took far longer than they should have.</p>
           </div>
 
           <div class="case-section">
             <p class="case-section-label">Methodology</p>
-            <p>We treated this as a two-part problem: first find when something changed, using only the sales data, without assumptions, then attach meaning to that date by cross-referencing available evidence.</p>
+            <p>We treated this as a full-stack operations problem: keep the field input as low-friction as possible, use AI to turn free-form emails into structured data automatically, persist it in a real database, and surface it in a dashboard people would actually use.</p>
 
             <!-- Interactive tab pane -->
             <div class="timeline-tabs">
-              <button class="timeline-tab active" onclick="switchTab(this, 'tab-detect')">1. Detect</button>
-              <button class="timeline-tab" onclick="switchTab(this, 'tab-quantify')">2. Quantify</button>
-              <button class="timeline-tab" onclick="switchTab(this, 'tab-correlate')">3. Correlate</button>
-              <button class="timeline-tab" onclick="switchTab(this, 'tab-confound')">4. Rule out</button>
+              <button class="timeline-tab active" onclick="switchTab(this, 'tab-capture')">1. Capture</button>
+              <button class="timeline-tab" onclick="switchTab(this, 'tab-pipeline')">2. Pipeline</button>
+              <button class="timeline-tab" onclick="switchTab(this, 'tab-dashboard')">3. Dashboard</button>
+              <button class="timeline-tab" onclick="switchTab(this, 'tab-governance')">4. Governance</button>
             </div>
 
-            <div class="timeline-pane active" id="tab-detect">
+            <div class="timeline-pane active" id="tab-capture">
               <div class="process-step" style="padding-top:0;">
                 <div class="step-badge">1</div>
                 <div class="step-content">
-                  <div class="step-title-inline">Change point detection</div>
-                  <p class="step-body-inline">Rather than picking an arbitrary "before and after" window, we ran statistical change point detection (<span class="tooltip-wrap">Pelt algorithm<span class="tooltip-box">Pruned Exact Linear Time, a standard method for finding where a time series' underlying behaviour structurally shifts, without needing a known date</span></span> via Python's ruptures library) across the full sales history. A 7-day rolling average was applied first to remove day-of-week noise, restaurant sales naturally spike on weekends regardless of menu design.</p>
+                  <div class="step-title-inline">Meeting site engineers where they already work</div>
+                  <p class="step-body-inline">Rather than forcing a new tool onto the field, site engineers kept doing what they already did: sending a plain email with the day's progress, material usage, and labor counts. No app to learn, no form to fill out, no reason to fall back on a handwritten register.</p>
                 </div>
               </div>
             </div>
 
-            <div class="timeline-pane" id="tab-quantify">
+            <div class="timeline-pane" id="tab-pipeline">
               <div class="process-step" style="padding-top:0;">
                 <div class="step-badge">2</div>
                 <div class="step-content">
-                  <div class="step-title-inline">Quantifying the shift</div>
-                  <p class="step-body-inline">Once the breakpoint was identified, average daily and weekly sales before and after were computed, expressed as a percentage lift and a cumulative revenue figure. Where the data showed more than one structural shift, each window was treated as its own "design era" and ranked independently, rather than assuming only one change occurred.</p>
+                  <div class="step-title-inline">AI-powered extraction and ETL ("ConstructIQ")</div>
+                  <p class="step-body-inline">Incoming emails are parsed with AI to extract structured fields, quantities, materials, labor counts, site references, even when phrasing and format vary from one engineer to the next, and written automatically into Google Sheets. From there, a custom-engineered SQLite backend and programmatic cleaning pipeline normalized the data across all six sites, so an entry from one site and one from another could finally be compared on equal terms.</p>
                 </div>
               </div>
             </div>
 
-            <div class="timeline-pane" id="tab-correlate">
+            <div class="timeline-pane" id="tab-dashboard">
               <div class="process-step" style="padding-top:0;">
                 <div class="step-badge">3</div>
                 <div class="step-content">
-                  <div class="step-title-inline">Visual correlation</div>
-                  <p class="step-body-inline">Sales data gives you a date, not a cause. To connect the detected change point to an actual design decision, we cross-referenced the breakpoint date against Wayback Machine snapshots, Yelp and Google Maps customer photos, and design-tool version history, confirming what the menu actually looked like during each detected window, rather than relying on memory or assumption.</p>
+                  <div class="step-title-inline">Live dashboard, production-deployed</div>
+                  <p class="step-body-inline">An interactive Streamlit dashboard surfaced daily operational metrics for project heads and finance, deployed on Streamlit Cloud with a GitHub Actions CI/CD workflow so updates rolled out automatically rather than through manual redeploys. Excel-based DPR trackers and reconciliation tools were kept in parallel during rollout, giving stakeholders a familiar bridge into the new system.</p>
                 </div>
               </div>
             </div>
 
-            <div class="timeline-pane" id="tab-confound">
+            <div class="timeline-pane" id="tab-governance">
               <div class="process-step" style="padding-top:0;">
                 <div class="step-badge">4</div>
                 <div class="step-content">
-                  <div class="step-title-inline">Ruling out confounders</div>
-                  <p class="step-body-inline">Before attributing any sales shift to the menu redesign, we checked the same window against pricing changes, seasonal effects, and marketing activity. A sales lift that coincides with a holiday season or a new delivery-platform promotion is not evidence of a successful redesign, separating those out is part of the deliverable, not an afterthought.</p>
+                  <div class="step-title-inline">Reconciliation and governance</div>
+                  <p class="step-body-inline">With clean, searchable data in place, material reconciliation surfaced vendor billing discrepancies that manual tracking had missed, directly saving 4,50,000 INR. Orders, verified bills, and updated payment terms with major vendors were tracked against formal Data Management SOPs and structured Minutes of Meetings with key project partners.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="case-section">
-            <p class="case-section-label">Why this matters beyond menus</p>
-            <p>The underlying capability isn't about menus. It's about taking a messy, undocumented operational change and reconstructing both when it happened and what effect it had, using whatever data trail already exists, rather than requiring perfect record-keeping going forward.</p>
+            <p class="case-section-label">Why this matters beyond construction</p>
+            <p>The technical pipeline only worked because of how it was rolled out. Frontline adoption came from removing friction entirely, engineers kept sending emails the way they always had, while the AI did the work of structuring it. That meant no retraining, no resistance, and no reason to revert to a handwritten register. Labor count disputes that once meant flipping through physical registers became near-instant digital searches, and that immediate, visible benefit is what drove organic adoption rather than mandated compliance.</p>
             <div class="design-decisions">
-              <p>The same method applies to pricing changes, staffing changes, vendor switches, or any operational decision made without instrumenting it at the time. The instinct is the same as in Fynsignal's automation work: the goal isn't just clean dashboards, it's making decisions and their consequences traceable, even retroactively.</p>
+              <p>The same pattern applies anywhere field operations feed corporate decisions: retail chains, logistics fleets, multi-site service businesses. The instinct is the same as in Fynsignal's other automation work: meet people where they already are, and let automation absorb the complexity instead of pushing it back onto the field.</p>
             </div>
           </div>
 
@@ -1706,34 +1707,35 @@ footer p { font-size: 12px; color: var(--mid); font-weight: 300; }
 
         <div class="case-sidebar">
           <div class="impact-card">
-            <p class="impact-card-title">Approach</p>
+            <p class="impact-card-title">Impact</p>
             <div class="impact-metric">
-              <div class="impact-metric-value"><em>Pelt</em></div>
-              <div class="impact-metric-label">Algorithm for change point detection across full sales history</div>
+              <div class="impact-metric-value"><em>₹4,50,000</em></div>
+              <div class="impact-metric-label">Direct savings from vendor billing discrepancy detection</div>
             </div>
             <div class="impact-metric">
-              <div class="impact-metric-value"><em>4 steps</em></div>
-              <div class="impact-metric-label">Detect → quantify → correlate → rule out confounders</div>
+              <div class="impact-metric-value"><em>6 sites</em></div>
+              <div class="impact-metric-label">Unified onto a single reporting standard</div>
             </div>
             <div class="impact-metric">
-              <div class="impact-metric-value"><em>Retroactive</em></div>
-              <div class="impact-metric-label">No prior instrumentation required, works from existing data</div>
+              <div class="impact-metric-value"><em>Email → Dashboard</em></div>
+              <div class="impact-metric-label">AI email parsing → Sheets → SQLite ETL → Streamlit</div>
             </div>
           </div>
           <div class="tech-card">
             <p class="tech-card-title">Methods &amp; tools</p>
-            <div class="tech-item"><span class="tech-dot"></span>Python, ruptures library</div>
-            <div class="tech-item"><span class="tech-dot"></span>Pelt change point detection</div>
-            <div class="tech-item"><span class="tech-dot"></span>7-day rolling average smoothing</div>
-            <div class="tech-item"><span class="tech-dot"></span>Wayback Machine / review data</div>
-            <div class="tech-item"><span class="tech-dot"></span>Confounder analysis (seasonal, pricing)</div>
+            <div class="tech-item"><span class="tech-dot"></span>AI-based email parsing / extraction</div>
+            <div class="tech-item"><span class="tech-dot"></span>Automated Google Sheets ingestion</div>
+            <div class="tech-item"><span class="tech-dot"></span>SQLite (ConstructIQ backend)</div>
+            <div class="tech-item"><span class="tech-dot"></span>Python ETL / data normalization</div>
+            <div class="tech-item"><span class="tech-dot"></span>Streamlit Cloud + GitHub Actions CI/CD</div>
           </div>
         </div>
       </div>
     </div>
 
-  
 
+
+  
     <!-- ── CASE 04 ─────────────────────────────── -->
     <div class="case-card" id="case4-card">
       <span class="case-anchor" id="case4"></span>
